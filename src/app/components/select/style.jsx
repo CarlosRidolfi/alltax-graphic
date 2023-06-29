@@ -1,5 +1,19 @@
 import styled from "styled-components";
 
+export const InstructionWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    justify-content: center;
+    align-items: center;
+
+    i {
+        color: white;
+        font-size: 20px;
+        margin-top: 20px;
+    }
+`
+
 export const SelectWrapper = styled.div`
     display: flex;
     justify-content: center;

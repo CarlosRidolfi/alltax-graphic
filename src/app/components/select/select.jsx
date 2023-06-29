@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import json from '../../json/products.json'
-import { PersonalizedSelect, SelectContainer, SelectTitle, SelectWrapper } from './style'
+import { InstructionWrapper, PersonalizedSelect, SelectContainer, SelectTitle, SelectWrapper } from './style'
 import Graphic from '../graphic/graphic';
 
 export default function Select() {
@@ -11,6 +11,7 @@ export default function Select() {
     const [subCategoriaSelecionada, setSubCategoriaSelecionada] = React.useState();
     const [marcaSelecionada, setMarcaSelecionada] = React.useState();
     const [vendas, setVendas] = React.useState([]);
+    const [instruction, setInstruction] = React.useState("Selecione uma categoria");
 
     React.useEffect(() => {
         setCategorias(json.categorias)
@@ -46,41 +47,49 @@ export default function Select() {
 
     return (    
         <>
-            <SelectWrapper>
-                <SelectContainer>
-                    <SelectTitle>Categoria:</SelectTitle>
-                    <PersonalizedSelect value={categoriaSelecionada?.nome} onChange={handleSelectCategorias}>
-                        <option>Selecione</option>
-                        {categorias.map((categoria) => (
-                            <option key={categoria.nome} value={categoria.nome}>
-                                {categoria.nome}
-                            </option>
-                        ))}
-                    </PersonalizedSelect>
-                </SelectContainer>
-                
-                <SelectContainer>
-                    <SelectTitle>Subcategoria:</SelectTitle>
-                    <PersonalizedSelect value={subCategoriaSelecionada?.nome} onChange={handleSelectSubcategorias}>
-                        {subCategorias.map((subcategoria) => (
-                            <option key={subcategoria.nome} value={subcategoria.nome}>
-                                {subcategoria.nome}
-                            </option>
-                        ))}
-                    </PersonalizedSelect>
-                </SelectContainer>
+            <InstructionWrapper>
+                {
+                    marcaSelecionada ?
+                        null
+                        :
+                        <i>{instruction}</i>
+                }
+                <SelectWrapper>
+                    <SelectContainer>
+                        <SelectTitle>Categoria:</SelectTitle>
+                        <PersonalizedSelect value={categoriaSelecionada?.nome} onChange={handleSelectCategorias}>
+                            <option>Selecione</option>
+                            {categorias.map((categoria) => (
+                                <option key={categoria.nome} value={categoria.nome}>
+                                    {categoria.nome}
+                                </option>
+                            ))}
+                        </PersonalizedSelect>
+                    </SelectContainer>
+                    
+                    <SelectContainer>
+                        <SelectTitle>Subcategoria:</SelectTitle>
+                        <PersonalizedSelect value={subCategoriaSelecionada?.nome} onChange={handleSelectSubcategorias}>
+                            {subCategorias.map((subcategoria) => (
+                                <option key={subcategoria.nome} value={subcategoria.nome}>
+                                    {subcategoria.nome}
+                                </option>
+                            ))}
+                        </PersonalizedSelect>
+                    </SelectContainer>
 
-                <SelectContainer>
-                    <SelectTitle>Marcas:</SelectTitle>
-                    <PersonalizedSelect value={marcaSelecionada?.nome} onChange={handleSelectMarcas}>
-                        {marcas.map((marca) => (
-                            <option key={marca.nome} value={marca.nome}>
-                                {marca.nome}
-                            </option>
-                        ))}
-                    </PersonalizedSelect>
-                </SelectContainer>
-            </SelectWrapper>
+                    <SelectContainer>
+                        <SelectTitle>Marcas:</SelectTitle>
+                        <PersonalizedSelect value={marcaSelecionada?.nome} onChange={handleSelectMarcas}>
+                            {marcas.map((marca) => (
+                                <option key={marca.nome} value={marca.nome}>
+                                    {marca.nome}
+                                </option>
+                            ))}
+                        </PersonalizedSelect>
+                    </SelectContainer>
+                </SelectWrapper>
+            </InstructionWrapper>
             {(typeof window !== 'undefined') &&
                 <Graphic vendas={vendas} product={categoriaSelecionada?.nome} />
             }
