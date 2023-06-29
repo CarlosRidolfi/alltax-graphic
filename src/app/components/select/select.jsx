@@ -7,15 +7,25 @@ export default function Select() {
     const [categorias, setCategorias] = React.useState([]);
     const [subCategorias, setSubCategorias] = React.useState([]);
     const [marcas, setMarcas] = React.useState([]);
-    const [categoriaSelecionada, setCategoriaSelecionada] = React.useState(categorias[0]);
-    const [subCategoriaSelecionada, setSubCategoriaSelecionada] = React.useState();
+    const [categoriaSelecionada, setCategoriaSelecionada] = React.useState();
+    const [subCategoriaSelecionada, setSubCategoriaSelecionada] = React.useState("Cruiser");
     const [marcaSelecionada, setMarcaSelecionada] = React.useState();
     const [vendas, setVendas] = React.useState([]);
     const [instruction, setInstruction] = React.useState("Selecione uma categoria");
 
     React.useEffect(() => {
-        setCategorias(json.categorias)
+        setIniciais(json.categorias)
     }, [])
+
+    const setIniciais = (categoria) => {
+        setCategorias(categoria)
+        setCategoriaSelecionada(categoria[0])
+        setSubCategorias(categoria[0].subcategorias)
+        setSubCategoriaSelecionada(categoria[0].subcategorias[0])
+        setMarcas(categoria[0].subcategorias[0].marcas)
+        setMarcaSelecionada(categoria[0].subcategorias[0].marcas[0])
+        setVendas(categoria[0].subcategorias[0].marcas[0].vendas)
+    };
 
     const setSubcategoria = useCallback((subcategoria) => {
         setSubCategoriaSelecionada(subcategoria)
@@ -58,7 +68,6 @@ export default function Select() {
                     <SelectContainer>
                         <SelectTitle>Categoria:</SelectTitle>
                         <PersonalizedSelect value={categoriaSelecionada?.nome} onChange={handleSelectCategorias}>
-                            <option>Selecione</option>
                             {categorias.map((categoria) => (
                                 <option key={categoria.nome} value={categoria.nome}>
                                     {categoria.nome}
