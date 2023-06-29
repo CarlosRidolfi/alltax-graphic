@@ -16,7 +16,7 @@ export default function Graphic({vendas, product}) {
         <>
             { vendas.length > 2 &&
                 <GraphicWrapper>
-                    <VendasTitle>Vendas</VendasTitle>
+                    <VendasTitle>Vendas por mês</VendasTitle>
                     <ProductImage product={product}/>
                     <Chart
                         options={options}
@@ -25,6 +25,7 @@ export default function Graphic({vendas, product}) {
                         height={500}
                         width={800}
                     />
+                    <i>Feito por Carlos Ridolfi</i>
                 </GraphicWrapper>
             }
         </>
