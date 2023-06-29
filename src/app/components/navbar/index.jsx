@@ -8,7 +8,7 @@ export default function Navbar() {
                 <Title>
                     <Typewriter
                     onInit={(typewriter) => {
-                        typewriter.typeString('All Tax Graphic')
+                        typewriter.typeString('All Tax Graphic (Teste)')
                     .pauseFor(1000)
                     .start();
                 }}
