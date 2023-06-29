@@ -81,7 +81,9 @@ export default function Select() {
                     </PersonalizedSelect>
                 </SelectContainer>
             </SelectWrapper>
-            <Graphic vendas={vendas} product={categoriaSelecionada?.nome} />
+            {(typeof window !== 'undefined') &&
+                <Graphic vendas={vendas} product={categoriaSelecionada?.nome} />
+            }
         </>
     );
 };
