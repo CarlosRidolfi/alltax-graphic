@@ -6,6 +6,7 @@ export const GraphicWrapper = styled.div`
     align-items: center;
     margin-top: 50px;
     flex-direction: column;
+    color: #000000;
 `
 
 export const VendasTitle = styled.h2`

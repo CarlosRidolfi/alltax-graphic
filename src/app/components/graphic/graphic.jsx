@@ -9,12 +9,7 @@ export default function Graphic({vendas, product}) {
             categories: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
         },
         tooltip: {
-            enabled: true,
-            style: {
-                fontSize: '12px',
-                fontFamily: undefined,
-                colors: ['#000000'],
-            }
+            enabled: true
         },
     }
     return (
