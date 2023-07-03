@@ -12,6 +12,11 @@ export const NavbarWrapper = styled.div`
 export const Title = styled.h1`
     font-size: 50px;
     margin-bottom: 30px;
+    text-align: center;
+
+    @media screen and (max-width: 800px) {
+        font-size: 30px;
+    }
 `
 
 export const Linha = styled.div`
