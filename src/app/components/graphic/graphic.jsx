@@ -13,6 +13,19 @@ export default function Graphic({vendas, product}) {
         tooltip: {
             enabled: true
         },
+        responsive: [{
+            breakpoint: 800,
+            options: {
+                chart : {
+                    width: "400px",
+                },
+                plotOptions: {
+                bar: {
+                    horizontal: true
+                }
+                }
+            }
+        }]
     }
     return (
         <>
