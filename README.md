@@ -1,6 +1,6 @@
 <h1>All Tax Graphic</h1>
 
-<p>Este é o repositório do projeto de teste técnico para a empresa All Tax. O objetivo deste projeto é criar uma aplicação gráfica, com um sistema de categorias baseado em um arquivo JSON que altera as outras categorias dos produtos em forma de cascata</p>
+<p>Este é o repositório do projeto de teste técnico para a empresa All Tax. O objetivo deste projeto é criar uma aplicação gráfica, com um sistema de categorias baseado em um arquivo JSON que altera as outras categorias dos produtos em forma de cascata.</p>
 
 <h2><mark>Como rodar este projeto</mark></h2>
 <p>Siga as instruções abaixo para executar o projeto em sua máquina local:</p>
