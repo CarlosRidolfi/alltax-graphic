@@ -27,6 +27,7 @@ export default function Graphic({vendas, product}) {
             }
         }]
     }
+    
     return (
         <>
             { vendas.length > 2 &&
